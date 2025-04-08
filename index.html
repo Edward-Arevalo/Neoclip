@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trailer por Categoría</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: black;
+    }
+
+    .trailer-container {
+      margin: 20px;
+    }
+
+    .trailer-item {
+      margin-bottom: 20px;
+    }
+
+    iframe {
+      display: block;
+      margin: 0;
+    }
+
+    .video-info {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .video-info iframe {
+      width: 300px;
+      height: 170px;
+    }
+
+    .trailer-description {
+      flex: 1;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .vederepiu {
+      display: block;
+      width: fit-content;
+      margin: 30px auto;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .vederepiu:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div id="trailer-container" class="trailer-container"></div>
+
+  <script>
+    function getCategoryFromUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get("categoria") || "";
+    }
+
+
+    function showTrailers(category) {
+      const trailerContainer = document.getElementById("trailer-container");
+      
+      category = "Films";
+      if (!category) {
+        trailerContainer.innerHTML = "<p>No se ha seleccionado una categoría.</p>";
+        return;
+      }
+
+      let trailers = [];
+      switch (category.trim().toLowerCase()) {
+        case "games":
+          trailers = [
+            {
+              title: "Minecraft",
+              description: "Minecraft es un juego de aventuras y construcción.",
+              videoUrl: "https://www.youtube.com/embed/MmB9b5njVbA?si=EQvh5aUgYXboFnoS",
+            },
+            {
+              title: "The Witcher 3",
+              description: "The Witcher 3 es un juego de rol.",
+              videoUrl: "https://www.youtube.com/embed/c0i88t0Kacs?si=BL6OiojqUsPMnS7g",
+            },
+            {
+              title: "Cyberpunk 2077",
+              description: "Cyberpunk 2077 es un juego de rol de mundo abierto en un futuro distópico.",
+              videoUrl: "https://www.youtube.com/embed/8X2kIfS6fb8?si=hIG1fKrsxIT06g5C"
+            },
+            {
+              title: "Watch Dogs",
+              description: "Juego de simulación y hackeo urbano.",
+              videoUrl: "https://www.youtube.com/embed/DqoQG_XYF-8?si=mE98htOXJWfJ7VGX"
+            },
+            {
+              title: "Animal Crossing",
+              description: "Juego de simulación de vida adorable.",
+              videoUrl: "https://www.youtube.com/embed/LMhOTPe3Aqk?si=pU2e5ruiq1x_Q7Pd"
+            },
+            {
+              title: "Albion Online",
+              description: "Albion Online es un MMORPG no lineal.",
+              videoUrl: "https://www.youtube.com/embed/eBU_Fxd0Jf4?si=53bVmIqxwjb9VIcM"
+            }
+          ];
+          break;
+
+        case "films":
+            trailers = [
+            {
+            title: "jurassic park",
+            description: " jfjjfjfjd",
+            videoUrl: "https://www.youtube.com/embed/lc0UehYemQA?si=q1mRbwKijMboMTpS",
+
+            },
+            {
+
+                title:"Titanic",
+                description: "ncccc",
+                videoUrl:"https://www.youtube.com/embed/kVrqfYjkTdQ?si=QInTww3S6yQENKTW",
+
+
+            },
+            {
+                title:"spiderman",
+                description: "ncccc",
+                videoUrl: "https://www.youtube.com/embed/t06RUxPbp_c?si=mIhrPbG30-a-Hdwj",
+
+            },
+            {
+                title:"Harry Poter",
+                description: "ncccc",
+                videoUrl:"https://www.youtube.com/embed/VyHV0BRtdxo?si=OdM9NtsILZdaY1BT" ,
+
+
+            },
+            {
+                title:"Fast & Furius",
+                description: "ncccc",
+                videoUrl:"https://www.youtube.com/embed/FDhvbIqTQwI?si=ZqJ6sPTi9_o_mEK_",
+
+
+            },
+            {
+                title:"agente 007",
+                description: "ncccc",
+                videoUrl:"https://www.youtube.com/embed/6kw1UVovByw?si=3uq2Y3DEjdHoJu5W",
+
+
+            },
+
+        
+            ];
+            break;
+
+        default:
+          trailerContainer.innerHTML = "<p>Categoría no disponible.</p>";
+          return;
+      }
+
+      trailers.forEach(trailer => {
+        const trailerItem = document.createElement("div");
+        trailerItem.classList.add("trailer-item");
+        const formattedDescription = trailer.description.replace(/\n/g, "<br>");
+        trailerItem.innerHTML = `
+          <h3>${trailer.title}</h3>
+          <div class="video-info">
+            <iframe src="${trailer.videoUrl}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="trailer-description">${formattedDescription}</div>
+          </div>
+        `;
+        trailerContainer.appendChild(trailerItem);
+      });
+
+      // URL personalizada por categoría
+      let categoryUrl = "";
+      switch (category.toLowerCase()) {
+        case "games":
+          categoryUrl = "https://m.youtube.com/gaming";
+          break;
+        case "films":
+          categoryUrl = "https://m.youtube.com/movies";
+          break;
+        default:
+          categoryUrl = "https://m.youtube.com";
+      }
+
+      const Vederebutton = document.createElement("a");
+      Vederebutton.className = "vederepiu";
+      Vederebutton.href = categoryUrl;
+      Vederebutton.target = "_blank";
+      Vederebutton.textContent = "Ver más";
+      trailerContainer.appendChild(Vederebutton);
+    }
+
+    const category = getCategoryFromUrl();
+    showTrailers(category);
+  </script>
+</body>
+</html>
