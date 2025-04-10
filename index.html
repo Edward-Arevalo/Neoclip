@@ -75,7 +75,7 @@
     function showTrailers(category) {
       const trailerContainer = document.getElementById("trailer-container");
       
-      
+     
       if (!category) {
         trailerContainer.innerHTML = "<p>No se ha seleccionado una categoría.</p>";
         return;
@@ -161,10 +161,79 @@
 
 
             },
-
-        
             ];
+              break;
+
+              case Sport:
+              trailers = [
+                {
+                    title:"",
+                    description:"",
+                    videoUrl:"",
+                },
+                {
+                    title:"",
+                    description:"",
+                    videoUrl:"",
+                },
+                {
+                    title:"",
+                    description:"",
+                    videoUrl:"",
+                },
+                {
+                    title:"",
+                    description:"",
+                    videoUrl:"",
+                },
+                {
+                    title:"",
+                    description:"",
+                    videoUrl:"",
+                },
+                {
+                    title:"",
+                    description:"",
+                    videoUrl: " " ,
+                },
+          ];
             break;
+            case musica:
+              trailers = [
+                {
+                    title:"",
+                    description:"",
+                    videoUrl:"",
+                },
+                {
+                    title:"",
+                    description:"",
+                    videoUrl:"",
+                },
+                {
+                    title:"",
+                    description:"",
+                    videoUrl:"",
+                },
+                {
+                    title:"",
+                    description:"",
+                    videoUrl:"",
+                },
+                {
+                    title:"",
+                    description:"",
+                    videoUrl:"",
+                },
+                {
+                    title:"",
+                    description:"",
+                    videoUrl: " " ,
+                },
+          ];
+          break
+              
+
 
         default:
           trailerContainer.innerHTML = "<p>Categoría no disponible.</p>";
@@ -181,7 +250,7 @@
             <iframe src="${trailer.videoUrl}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="trailer-description">${formattedDescription}</div>
           </div>
-        `;
+        `
         trailerContainer.appendChild(trailerItem);
       });
 
@@ -193,6 +262,12 @@
           break;
         case "films":
           categoryUrl = "https://m.youtube.com/movies";
+          break;
+          case "Musica":
+          categoryUrl = "https://m.youtube.com/sport";
+          break;
+          case "Sport":
+          categoryUrl = "https://m.youtube.com/music";
           break;
         default:
           categoryUrl = "https://m.youtube.com";
