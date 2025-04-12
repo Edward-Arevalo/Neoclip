@@ -67,6 +67,7 @@
 
   <script>
     function getCategoryFromUrl() {
+      //cerca il parametro del codice di c# e lo passa a categoria
       const urlParams = new URLSearchParams(window.location.search);
       return urlParams.get("categoria") || "";
     }
@@ -81,6 +82,8 @@
         return;
       }
 
+      //trailers di tutta la categoria disponibile
+
       let trailers = [];
       switch (category.trim().toLowerCase()) {
         case "games":
@@ -92,7 +95,8 @@
             },
             {
               title: "The Witcher 3",
-              description: "",
+              description:`The Witcher 3 è un gioco di ruolo d’azione ambientato in un vasto mondo fantasy. <br>"
+              "Il giocatore veste i panni di Geralt di Rivia, un cacciatore di mostri, impegnato in missioni epiche, scelte morali complesse e combattimenti intensi.`,
               videoUrl: "https://www.youtube.com/embed/c0i88t0Kacs?si=BL6OiojqUsPMnS7g",
             },
             {
@@ -122,21 +126,21 @@
             trailers = [
             {
             title: "jurassic park",
-            description: " jfjjfjfjd",
+            description: "  ",
             videoUrl: "https://www.youtube.com/embed/lc0UehYemQA?si=q1mRbwKijMboMTpS",
 
             },
             {
 
                 title:"Titanic",
-                description: "ncccc",
+                description: "  ",
                 videoUrl:"https://www.youtube.com/embed/kVrqfYjkTdQ?si=QInTww3S6yQENKTW",
 
 
             },
             {
                 title:"spiderman",
-                description: "ncccc",
+                description: "Film uscito nel 2002,  ",
                 videoUrl: "https://www.youtube.com/embed/t06RUxPbp_c?si=mIhrPbG30-a-Hdwj",
 
             },
@@ -149,14 +153,14 @@
             },
             {
                 title:"Fast & Furius",
-                description: "ncccc",
+                description: " ",
                 videoUrl:"https://www.youtube.com/embed/FDhvbIqTQwI?si=ZqJ6sPTi9_o_mEK_",
 
 
             },
             {
                 title:"agente 007",
-                description: "ncccc",
+                description: " ",
                 videoUrl:"https://www.youtube.com/embed/6kw1UVovByw?si=3uq2Y3DEjdHoJu5W",
 
 
@@ -213,7 +217,7 @@
                 {
                     title:"a-ha - Take On Me ",
                     description:"",
-                    videoUrl:"a-ha - Take On Me ",
+                    videoUrl:"https://www.youtube.com/embed/djV11Xbc914?si=SUdbypsqNsfllpBG",
                 },
                 {
                     title:"",
@@ -243,6 +247,7 @@
       trailers.forEach(trailer => {
         const trailerItem = document.createElement("div");
         trailerItem.classList.add("trailer-item");
+      
         const formattedDescription = trailer.description.replace(/\n/g, "<br>");
         trailerItem.innerHTML = `
           <h3>${trailer.title}</h3>
