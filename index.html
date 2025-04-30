@@ -6,10 +6,16 @@
   <title>Trailer por Categoría</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font: oblique bold 120% cursive;
       margin: 0;
       padding: 0;
-      background-color: black;
+      background-color: rgb(0, 0, 0);
+    }
+
+    h3{
+
+      background-color:rgb(255, 255, 255) ;
+
     }
 
     .trailer-container {
@@ -26,19 +32,24 @@
     }
 
     .video-info {
+     
       display: flex;
       align-items: flex-start;
       gap: 20px;
+     
     }
 
     .video-info iframe {
+      /* riquadro di trailer    */
       width: 300px;
-      height: 170px;
+      height: 180px;
     }
 
     .trailer-description {
+
+        /* riquadro di description */
       flex: 1;
-      background-color: #fff;
+      background-color: #ffffff;
       padding: 10px;
       border-radius: 5px;
     }
@@ -75,9 +86,10 @@
 
     function showTrailers(category) {
       const trailerContainer = document.getElementById("trailer-container");
-      
+      category = "games";
     
       if (!category) {
+        
         trailerContainer.innerHTML = "<p>Categoria non selezionata: .</p>";
         return;
       }
@@ -95,28 +107,32 @@
             },
             {
               title: "The Witcher 3",
-              description:`The Witcher 3 è un gioco di ruolo d’azione ambientato in un vasto mondo fantasy. <br>"
-              "Il giocatore veste i panni di Geralt di Rivia, un cacciatore di mostri, impegnato in missioni epiche, scelte morali complesse e combattimenti intensi.`,
+              description:`The Witcher 3 è un gioco di ruolo d’azione ambientato in un vasto mondo fantasy.
+              Il giocatore veste i panni di Geralt di Rivia, un cacciatore di mostri, impegnato in missioni epiche, scelte morali complesse e combattimenti intensi.`,
               videoUrl: "https://www.youtube.com/embed/c0i88t0Kacs?si=BL6OiojqUsPMnS7g",
             },
             {
               title: "Cyberpunk 2077",
-              description: "",
+              description: `Cyberpunk 2077 è un gioco di ruolo futuristico ambientato in una città distopica chiamata Night City.
+               Il protagonista, V, vive avventure tra gang, corporazioni e tecnologia avanzata, in un mondo pieno di dettagli e storie alternative.`,
               videoUrl: "https://www.youtube.com/embed/8X2kIfS6fb8?si=hIG1fKrsxIT06g5C"
             },
             {
               title: "Watch Dogs",
-              description: "Juego de simulación y hackeo urbano.",
+              description: `Watch Dogs è un gioco d’azione e avventura in cui i giocatori controllano hacker capaci di manipolare la tecnologia urbana.
+               Ambientato in città moderne, il gioco mescola furtività, combattimenti e missioni digitali.`,
               videoUrl: "https://www.youtube.com/embed/DqoQG_XYF-8?si=mE98htOXJWfJ7VGX"
             },
             {
               title: "Animal Crossing",
-              description: "Juego de simulación de vida adorable.",
+              description: `Animal Crossing è un gioco di simulazione di vita in cui i giocatori si trasferiscono su un’isola abitata da animali antropomorfi. 
+              Si possono decorare case, coltivare, pescare e vivere in un mondo rilassante e personalizzabile.`,
               videoUrl: "https://www.youtube.com/embed/LMhOTPe3Aqk?si=pU2e5ruiq1x_Q7Pd"
             },
             {
               title: "Albion Online",
-              description: "Albion Online es un MMORPG no lineal.",
+              description: `Albion Online è un gioco MMORPG sandbox ambientato in un mondo medievale fantasy.
+               I giocatori possono combattere, commerciare, costruire e unirsi a gilde in un’economia completamente gestita dagli utenti.`,
               videoUrl: "https://www.youtube.com/embed/eBU_Fxd0Jf4?si=53bVmIqxwjb9VIcM"
             }
           ];
@@ -282,7 +298,7 @@
       Vederebutton.className = "vederepiu";
       Vederebutton.href = categoryUrl;
       Vederebutton.target = "_blank";
-      Vederebutton.textContent = "Ver más";
+      Vederebutton.textContent = "See More";
       trailerContainer.appendChild(Vederebutton);
     }
 
