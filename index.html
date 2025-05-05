@@ -6,7 +6,7 @@
   <title>Trailer por Categoría</title>
   <style>
     body {
-      font: oblique bold 120% cursive;
+      font: italic normal 400 25px Arial, Verdana, sans-serif;
       margin: 0;
       padding: 0;
       background-color: rgb(0, 0, 0);
@@ -86,7 +86,7 @@
 
     function showTrailers(category) {
       const trailerContainer = document.getElementById("trailer-container");
-      
+     
     
       if (!category) {
         
@@ -141,42 +141,50 @@
         case "films":
             trailers = [
             {
-            title: "jurassic park",
-            description: "  ",
+            title: "Jurassic park",
+            description:`Un film epico che riporta in vita i dinosauri 
+            grazie alla scienza, ma le cose sfunggono rapidamente al controllo `,
             videoUrl: "https://www.youtube.com/embed/lc0UehYemQA?si=q1mRbwKijMboMTpS",
 
             },
             {
 
                 title:"Titanic",
-                description: "  ",
+                description: `Una struggente storia d'amore
+                tra due giovani di classi sociali diverse, ambientata sul  tragico sfondo
+                del naufragio del Titanic`,
                 videoUrl:"https://www.youtube.com/embed/kVrqfYjkTdQ?si=QInTww3S6yQENKTW",
 
 
             },
             {
-                title:"spiderman",
-                description: "Film uscito nel 2002,  ",
+                title:"Spiderman",
+                description: `IL primo capitolo della saga di Spiderman
+                uscito nel 2002,racconta le origini di Peter parker e la sua
+                transformazione in supereroe`,
                 videoUrl: "https://www.youtube.com/embed/t06RUxPbp_c?si=mIhrPbG30-a-Hdwj",
 
             },
             {
                 title:"Harry Poter",
-                description: "ncccc",
+                description:`Un giovane ragazzo scopre di essere un mago
+                e inizia un'aventura indimenticabile nella scuola di magia di Hogwarts`,
                 videoUrl:"https://www.youtube.com/embed/VyHV0BRtdxo?si=OdM9NtsILZdaY1BT" ,
 
 
             },
             {
                 title:"Fast & Furius",
-                description: " ",
+                description:`Un mix esplosivo di velocità, azione 
+                e famiglia, con corse clandestine e missioni ad alto rischio in tutto il mondo`,
                 videoUrl:"https://www.youtube.com/embed/FDhvbIqTQwI?si=ZqJ6sPTi9_o_mEK_",
 
 
             },
             {
-                title:"agente 007",
-                description: " ",
+                title:"Agente 007",
+                description:`James Bond, l'agente segreto piu' famoso del mondo,
+                affronta nuove missioni piene di intrighi, tecnologia e fascino britannico`,
                 videoUrl:"https://www.youtube.com/embed/6kw1UVovByw?si=3uq2Y3DEjdHoJu5W",
 
 
@@ -284,10 +292,10 @@
         case "films":
           categoryUrl = "https://m.youtube.com/movies";
           break;
-          case "Musica":
+          case "music":
           categoryUrl = "https://m.youtube.com/sport";
           break;
-          case "Sport":
+          case "sport":
           categoryUrl = "https://m.youtube.com/music";
           break;
         default:
